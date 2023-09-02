@@ -23,7 +23,7 @@ class Wallet(Base):
         """
         self.player = player_id
 
-    def restart_wallet(self):
+    def reset(self):
         self.coin_1 = 5
         self.coin_5 = 4
         self.coin_25 = 5
@@ -35,7 +35,6 @@ class Wallet(Base):
         Retorna a representação em dicionário do Objeto Produto.
         """
         return {
-            "id": self.id,
             "coin_1": self.coin_1,
             "coin_5": self.coin_5,
             "coin_25": self.coin_25,

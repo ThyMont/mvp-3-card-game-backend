@@ -16,7 +16,7 @@ class Player (Base):
     username = Column(String, unique=True)
     password = Column(String)
 
-    wallet: Wallet = relationship('Wallet')
+    wallet = relationship('Wallet', uselist=False)
 
     def __init__(self, name, username, password):
         self.name = name
@@ -27,7 +27,15 @@ class Player (Base):
         """
         Retorna uma representação do Player em forma de texto.
         """
-        return f"Player(id={self.id}, name='{self.name}', username='{self.username}', wallet={self.wallet.__repr__})"
+        return f"Player(id={self.id}, name='{self.name}', username='{self.username}', wallet={self.wallet.__repr__()})"
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'username': self.username,
+            'wallet': self.wallet.to_dict()
+        }
 
     def update_name(self, name):
         self.name = name
@@ -37,3 +45,6 @@ class Player (Base):
 
     def create_wallet(self):
         self.wallet = Wallet(self.id)
+    
+    def reset_wallet(self):
+        self.wallet.reset()
