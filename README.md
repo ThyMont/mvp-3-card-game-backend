@@ -12,10 +12,10 @@ $ py -m venv app\venv
 $ .\app\venv\Scripts\activate
 ```
 
-# encerrrar
+# Encerrar venv
 
 ```
-$ deactivate
+(env)$ deactivate
 ```
 
 # Instalar dependências
