@@ -4,6 +4,8 @@ from sqlalchemy import create_engine
 import os
 
 from model.base import Base
+from model.player import Player
+from model.wallet import Wallet
 # Importar os outros modelos para criar tabela
 
 db_path = "database/"
