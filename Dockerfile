@@ -5,10 +5,10 @@ FROM python:3.9
 WORKDIR /app
 
 # Copia os arquivos de requisitos para o diretório de trabalho
-COPY /app/requirements.txt .
+COPY /requirements.txt .
 
 # Copia o código-fonte para o diretório de trabalho
-COPY /app .
+COPY . .
 
 # Instala as dependências do projeto
 RUN pip install --no-cache-dir -r requirements.txt

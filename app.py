@@ -58,3 +58,9 @@ def delete_player(form: DeletePlayerForm):
 def reset_coins(path: PlayerPath):
     service = PlayerService()
     return service.reset_coins(path.id)
+
+
+@app.put('/updatecoins', responses={"200": PlayerViewSchema, "404": ErrorSchema})
+def update_wallet(form: UpdateWalletForm):
+    service = PlayerService()
+    return service.update_wallet(form)

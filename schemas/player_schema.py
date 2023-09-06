@@ -56,3 +56,17 @@ class PlayerDelSchema(BaseModel):
     """
     message: str
     username: str
+
+
+class UpdateWalletForm(BaseModel):
+    """
+    Adiciona ou remove Coins. Valores positivos para adicionar e negativos para remover.
+    0 ou não incluir o parâmetro não altera o objeto
+    """
+    player_id: int
+    coin_1: int = 0
+    coin_5: int = 0
+    coin_25: int = 0
+    coin_50: int = 0
+    coin_100: int = 0
+    ...

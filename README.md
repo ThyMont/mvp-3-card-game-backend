@@ -3,13 +3,13 @@
 # Criar venv
 
 ```
-$ py -m venv app\venv
+$ py -m venv venv
 ```
 
 # Iniciar venv
 
 ```
-$ .\app\venv\Scripts\activate
+$ .\venv\Scripts\activate
 ```
 
 # Encerrar venv
@@ -21,14 +21,10 @@ $ deactivate
 # Instalar dependências
 
 ```
-(env)$ pip install -r app\requirements.txt
+(env)$ pip install -r requirements.txt
 ```
 
-# Para executar a API, acessar a pasta 'app' e executar:
-
-```
-(env)$ cd app
-```
+# Para executar a API:
 
 ```
 (env)$ flask run --host 0.0.0.0 --port 5000
