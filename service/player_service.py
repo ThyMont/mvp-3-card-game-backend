@@ -20,6 +20,19 @@ class PlayerService:
             logger.info(f"Player encontrado: {player.username}")
             return {'player': player.to_dict()}, 200
 
+    def find_by_username(_, username: str):
+        session = Session()
+        player = session.query(Player).filter(
+            Player.username == username).first()
+        if not player:
+            error_msg = "Player não encontrado:/"
+            logger.warning(
+                f"Erro ao procurar Player id:{id}, {error_msg}")
+            return {"message": error_msg}, 404
+        else:
+            logger.info(f"Player encontrado: {player.username}")
+            return {'player': player.to_dict()}, 200
+
     def create(_, form: NewPlayerForm):
         try:
             player = Player(

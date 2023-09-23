@@ -70,7 +70,7 @@ def login_player(form: LoginForm):
     Simples login para o Player - SEM SENHA
     """
     service = PlayerService()
-    return service.login(form)
+    return service.find_by_username(form.username)
 
 
 @app.post('/blackjack/new')
