@@ -1,80 +1,98 @@
-[2023-09-02 20:26:57,215] INFO 127.0.0.1 - - [02/Sep/2023 20:26:57] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-02 20:26:57,221] INFO 127.0.0.1 - - [02/Sep/2023 20:26:57] "[36mGET /openapi/static/images/swagger.svg HTTP/1.1[0m" 304 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-02 20:27:26,531] INFO 127.0.0.1 - - [02/Sep/2023 20:27:26] "POST /player HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-02 20:27:48,775] ERROR Exception on /player/1/resetcoins [PUT] - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py L1414
+[2023-09-23 17:02:49,610] ERROR Exception on /blackjack/new [POST] - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py L1414
 Traceback (most recent call last):
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\engine\result.py", line 202, in _key_not_found
+    self._key_fallback(key, None)
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\engine\result.py", line 141, in _key_fallback
+    raise KeyError(key) from err
+KeyError: 'wallet'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
     rv = self.handle_user_exception(e)
          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
                                                 ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
     rv = self.dispatch_request()
          ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask_openapi3\scaffold.py", line 127, in view_func
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask_openapi3\scaffold.py", line 127, in view_func
     response = func(**func_kwargs)
                ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\app.py", line 60, in reset_coins
-    return service.reset_coins(path.id)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\service\player_service.py", line 74, in reset_coins
-    session.commit()
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1923, in commit
-    trans.commit(_to_root=True)
-  File "<string>", line 2, in commit
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
-    ret_value = fn(self, *arg, **kw)
-                ^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1239, in commit
-    self._prepare_impl()
-  File "<string>", line 2, in _prepare_impl
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
-    ret_value = fn(self, *arg, **kw)
-                ^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1214, in _prepare_impl
-    self.session.flush()
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4179, in flush
-    self._flush(objects)
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4314, in _flush
-    with util.safe_reraise():
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 147, in __exit__
-    raise exc_value.with_traceback(exc_tb)
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4275, in _flush
-    flush_context.execute()
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
-    rec.execute(self)
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 591, in execute
-    self.dependency_processor.process_saves(uow, states)
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\sqlalchemy\orm\dependency.py", line 602, in process_saves
-    self._synchronize(
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\sqlalchemy\orm\dependency.py", line 623, in _synchronize
-    sync.clear(dest, self.mapper, self.prop.synchronize_pairs)
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\sqlalchemy\orm\sync.py", line 88, in clear
-    raise AssertionError(
-AssertionError: Dependency rule tried to blank-out primary key column 'wallet.player' on instance '<Wallet at 0x1cd7fb6a690>'
-[2023-09-02 20:27:48,790] INFO 127.0.0.1 - - [02/Sep/2023 20:27:48] "[35m[1mPUT /player/1/resetcoins HTTP/1.1[0m" 500 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-02 20:29:56,601] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app.py", line 76, in blackjack_new_game
+    return service.new_game(form)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\blackjack_service.py", line 23, in new_game
+    validate_msg = validate_bet(form.player_id, form.coin_1,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\model\utils.py", line 15, in validate_bet
+    if player.wallet.coin_1 > coin_1 or player.wallet.coin_5 > coin_5 or player.wallet.coin_25 > coin_25 or player.wallet.coin_50 > coin_50 or player.wallet.coin_100 > coin_100:
+       ^^^^^^^^^^^^^
+  File "lib\\sqlalchemy\\cyextension\\resultproxy.pyx", line 60, in sqlalchemy.cyextension.resultproxy.BaseRow.__getattr__
+  File "lib\\sqlalchemy\\cyextension\\resultproxy.pyx", line 57, in sqlalchemy.cyextension.resultproxy.BaseRow._get_by_key_impl
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\engine\result.py", line 204, in _key_not_found
+    raise AttributeError(ke.args[0]) from ke
+AttributeError: wallet
+[2023-09-23 17:02:49,642] INFO 127.0.0.1 - - [23/Sep/2023 17:02:49] "[35m[1mPOST /blackjack/new HTTP/1.1[0m" 500 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-23 17:04:43,912] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
- * Running on http://192.168.1.6:5000 - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-02 20:29:56,603] INFO [33mPress CTRL+C to quit[0m - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-02 20:30:02,578] INFO Reseted Coins: thymont - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\service\player_service.py L81  
-[2023-09-02 20:30:02,583] INFO 127.0.0.1 - - [02/Sep/2023 20:30:02] "PUT /player/1/resetcoins HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-06 16:04:51,526] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://192.168.1.8:5000 - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-23 17:04:43,913] INFO [33mPress CTRL+C to quit[0m - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-23 17:04:45,483] ERROR Exception on /blackjack/new [POST] - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py L1414
+Traceback (most recent call last):
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\engine\result.py", line 202, in _key_not_found
+    self._key_fallback(key, None)
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\engine\result.py", line 141, in _key_fallback
+    raise KeyError(key) from err
+KeyError: 'wallet'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask_openapi3\scaffold.py", line 127, in view_func
+    response = func(**func_kwargs)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app.py", line 76, in blackjack_new_game
+    return service.new_game(form)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\blackjack_service.py", line 23, in new_game
+    validate_msg = validate_bet(form.player_id, form.coin_1,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\model\utils.py", line 15, in validate_bet
+    print(player.wallet)
+          ^^^^^^^^^^^^^
+  File "lib\\sqlalchemy\\cyextension\\resultproxy.pyx", line 60, in sqlalchemy.cyextension.resultproxy.BaseRow.__getattr__
+  File "lib\\sqlalchemy\\cyextension\\resultproxy.pyx", line 57, in sqlalchemy.cyextension.resultproxy.BaseRow._get_by_key_impl
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\engine\result.py", line 204, in _key_not_found
+    raise AttributeError(ke.args[0]) from ke
+AttributeError: wallet
+[2023-09-23 17:04:45,499] INFO 127.0.0.1 - - [23/Sep/2023 17:04:45] "[35m[1mPOST /blackjack/new HTTP/1.1[0m" 500 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-23 17:06:08,691] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
- * Running on http://192.168.1.12:5000 - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-06 16:04:51,529] INFO [33mPress CTRL+C to quit[0m - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-06 16:05:00,579] INFO 127.0.0.1 - - [06/Sep/2023 16:05:00] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-06 16:05:00,854] INFO 127.0.0.1 - - [06/Sep/2023 16:05:00] "[36mGET /openapi/static/css/swagger-ui.css HTTP/1.1[0m" 304 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-06 16:05:00,903] INFO 127.0.0.1 - - [06/Sep/2023 16:05:00] "[36mGET /openapi/static/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-06 16:05:01,025] INFO 127.0.0.1 - - [06/Sep/2023 16:05:01] "[36mGET /openapi/static/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-06 16:05:01,274] INFO 127.0.0.1 - - [06/Sep/2023 16:05:01] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-06 16:05:01,433] INFO 127.0.0.1 - - [06/Sep/2023 16:05:01] "[36mGET /openapi/static/images/swagger.svg HTTP/1.1[0m" 304 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
+ * Running on http://192.168.1.8:5000 - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-23 17:06:08,693] INFO [33mPress CTRL+C to quit[0m - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 

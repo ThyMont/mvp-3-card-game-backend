@@ -6,8 +6,12 @@ from sqlalchemy.exc import IntegrityError
 
 from model import Wallet, Player
 # from logger import logger
-from schemas import *
-from service import *
+from schemas.player_schema import PlayerViewSchema, PlayerPath, PlayerDelSchema, DeletePlayerForm, NewPlayerForm, LoginForm
+from schemas.blackjack_schema import BlackjackPath
+from schemas.blackjack_schema import BetForm
+from schemas.error import ErrorSchema
+from service.player_service import PlayerService
+from service.blackjack_service import BlackjackService
 from flask_cors import CORS
 
 info = Info(title="Minha API", version="1.0.0")
@@ -60,7 +64,34 @@ def reset_coins(path: PlayerPath):
     return service.reset_coins(path.id)
 
 
-@app.put('/updatecoins', responses={"200": PlayerViewSchema, "404": ErrorSchema})
-def update_wallet(form: UpdateWalletForm):
+@app.post('/login', responses={"200": PlayerViewSchema, "409": ErrorSchema, "400": ErrorSchema})
+def login_player(form: LoginForm):
+    """
+    Simples login para o Player - SEM SENHA
+    """
     service = PlayerService()
-    return service.update_wallet(form)
+    return service.login(form)
+
+
+@app.post('/blackjack/new')
+def blackjack_new_game(form: BetForm):
+    service = BlackjackService()
+    return service.new_game(form)
+
+
+@app.get('/blackjack/hit/<int:id>')
+def blackjack_hit(path: BlackjackPath):
+    service = BlackjackService()
+    return service.hit(path)
+
+
+@app.get('/blackjack/double/<int:id>')
+def blackjack_double(path: BlackjackPath):
+    service = BlackjackService()
+    return service.double(path)
+
+
+@app.get('/blackjack/stand/<int:id>')
+def blackjack_stand(path: BlackjackPath):
+    service = BlackjackService()
+    return service.stand(path)

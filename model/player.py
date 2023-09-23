@@ -1,6 +1,6 @@
 from model.base import Base
 from sqlalchemy.orm import relationship
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Date
 
 from model.wallet import Wallet
 
@@ -14,14 +14,12 @@ class Player (Base):
     id = Column("pk_player", Integer, primary_key=True, autoincrement=True)
     name = Column(String)
     username = Column(String, unique=True)
-    password = Column(String)
 
     wallet = relationship('Wallet', uselist=False)
 
-    def __init__(self, name, username, password):
+    def __init__(self, name, username):
         self.name = name
         self.username = username
-        self.password = password
 
     def __repr__(self):
         """
@@ -40,11 +38,8 @@ class Player (Base):
     def update_name(self, name):
         self.name = name
 
-    def update_password(self, password):
-        self.password = password
-
     def create_wallet(self):
         self.wallet = Wallet(self.id)
-    
+
     def reset_wallet(self):
         self.wallet.reset()

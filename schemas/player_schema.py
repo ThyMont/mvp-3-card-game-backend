@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from model import Player, Wallet
+from model import Player
 
 
 class WalletViewSchema(BaseModel):
@@ -38,15 +38,20 @@ class NewPlayerForm(BaseModel):
     """
     name: str
     username: str
-    password: str
+
+
+class LoginForm(BaseModel):
+    """
+    Formulário de login - SEM SENHA
+    """
+    username: str
 
 
 class DeletePlayerForm(BaseModel):
     """
     Formulário para exclusão de novo player
     """
-    username: str
-    password: str
+    player_id: int
 
 
 class PlayerDelSchema(BaseModel):
@@ -56,17 +61,3 @@ class PlayerDelSchema(BaseModel):
     """
     message: str
     username: str
-
-
-class UpdateWalletForm(BaseModel):
-    """
-    Adiciona ou remove Coins. Valores positivos para adicionar e negativos para remover.
-    0 ou não incluir o parâmetro não altera o objeto
-    """
-    player_id: int
-    coin_1: int = 0
-    coin_5: int = 0
-    coin_25: int = 0
-    coin_50: int = 0
-    coin_100: int = 0
-    ...

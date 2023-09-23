@@ -1,9 +1,4 @@
-[2023-09-23 16:38:12,501] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://192.168.1.8:5000 - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-23 16:38:12,527] INFO [33mPress CTRL+C to quit[0m - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-23 16:38:17,871] ERROR Exception on /blackjack/new [POST] - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py L1414
+[2023-09-23 16:14:51,243] ERROR Exception on /blackjack/new [POST] - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py L1414
 Traceback (most recent call last):
   File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -26,17 +21,24 @@ Traceback (most recent call last):
   File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app.py", line 76, in blackjack_new_game
     return service.new_game(form)
            ^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\blackjack_service.py", line 48, in new_game
-    diff(math.floor(b-a))
-         ^^^^^^^^^^^^^^^
-TypeError: must be real number, not datetime.timedelta
-[2023-09-23 16:38:17,878] INFO 127.0.0.1 - - [23/Sep/2023 16:38:17] "[35m[1mPOST /blackjack/new HTTP/1.1[0m" 500 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-23 16:38:49,549] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\blackjack_service.py", line 42, in new_game
+    a = arrow.get(last_match.date)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\arrow\api.py", line 91, in get
+    return _factory.get(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\arrow\factory.py", line 227, in get
+    raise TypeError("Cannot parse argument of type None.")
+TypeError: Cannot parse argument of type None.
+[2023-09-23 16:14:51,271] INFO 127.0.0.1 - - [23/Sep/2023 16:14:51] "[35m[1mPOST /blackjack/new HTTP/1.1[0m" 500 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-23 16:16:18,212] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
  * Running on http://192.168.1.8:5000 - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-23 16:38:49,551] INFO [33mPress CTRL+C to quit[0m - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-23 16:38:52,334] ERROR Exception on /blackjack/new [POST] - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py L1414
+[2023-09-23 16:16:18,215] INFO [33mPress CTRL+C to quit[0m - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-23 16:16:35,025] INFO 127.0.0.1 - - [23/Sep/2023 16:16:35] "POST /player HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-23 16:16:53,564] INFO 127.0.0.1 - - [23/Sep/2023 16:16:53] "POST /blackjack/new HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-23 16:17:18,661] ERROR Exception on /blackjack/new [POST] - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py L1414
 Traceback (most recent call last):
   File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -59,17 +61,17 @@ Traceback (most recent call last):
   File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app.py", line 76, in blackjack_new_game
     return service.new_game(form)
            ^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\blackjack_service.py", line 47, in new_game
-    diff = math.floor(b-a)
-           ^^^^^^^^^^^^^^^
-TypeError: must be real number, not datetime.timedelta
-[2023-09-23 16:38:52,341] INFO 127.0.0.1 - - [23/Sep/2023 16:38:52] "[35m[1mPOST /blackjack/new HTTP/1.1[0m" 500 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-23 16:40:05,173] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\blackjack_service.py", line 44, in new_game
+    if b-a > 14:
+       ^^^^^^^^
+TypeError: '>' not supported between instances of 'datetime.timedelta' and 'int'
+[2023-09-23 16:17:18,669] INFO 127.0.0.1 - - [23/Sep/2023 16:17:18] "[35m[1mPOST /blackjack/new HTTP/1.1[0m" 500 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-23 16:18:41,699] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
  * Running on http://192.168.1.8:5000 - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-23 16:40:05,174] INFO [33mPress CTRL+C to quit[0m - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-23 16:40:07,458] ERROR Exception on /blackjack/new [POST] - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py L1414
+[2023-09-23 16:18:41,700] INFO [33mPress CTRL+C to quit[0m - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-23 16:18:44,253] ERROR Exception on /blackjack/new [POST] - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py L1414
 Traceback (most recent call last):
   File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -92,8 +94,8 @@ Traceback (most recent call last):
   File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app.py", line 76, in blackjack_new_game
     return service.new_game(form)
            ^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\blackjack_service.py", line 47, in new_game
-    diff = math.floor(b-a)
-                      ~^~
-TypeError: unsupported operand type(s) for -: 'method' and 'Arrow'
-[2023-09-23 16:40:07,465] INFO 127.0.0.1 - - [23/Sep/2023 16:40:07] "[35m[1mPOST /blackjack/new HTTP/1.1[0m" 500 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\blackjack_service.py", line 44, in new_game
+    if (b-a) > 14:
+       ^^^^^^^^^^
+TypeError: '>' not supported between instances of 'datetime.timedelta' and 'int'
+[2023-09-23 16:18:44,265] INFO 127.0.0.1 - - [23/Sep/2023 16:18:44] "[35m[1mPOST /blackjack/new HTTP/1.1[0m" 500 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 

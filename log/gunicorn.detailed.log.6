@@ -1,90 +1,99 @@
-[2023-09-02 19:51:01,802] ERROR Exception on /player [DELETE] - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py L1414
-Traceback (most recent call last):
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
-    return cors_after_request(app.make_response(f(*args, **kwargs)))
-                                                ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask_openapi3\scaffold.py", line 127, in view_func
-    response = func(**func_kwargs)
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\app.py", line 54, in delete_player
-    return service.delete_player(form)
-           ^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'PlayerService' object has no attribute 'delete_player'
-[2023-09-02 19:51:01,811] INFO 127.0.0.1 - - [02/Sep/2023 19:51:01] "[35m[1mDELETE /player HTTP/1.1[0m" 500 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-02 19:54:39,122] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+[2023-09-23 16:40:30,113] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
- * Running on http://192.168.1.6:5000 - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-02 19:54:39,123] INFO [33mPress CTRL+C to quit[0m - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-02 19:54:43,421] ERROR Exception on /player [DELETE] - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py L1414
+ * Running on http://192.168.1.8:5000 - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-23 16:40:30,131] INFO [33mPress CTRL+C to quit[0m - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-23 16:40:33,192] ERROR Exception on /blackjack/new [POST] - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py L1414
 Traceback (most recent call last):
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
     rv = self.handle_user_exception(e)
          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
                                                 ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
     rv = self.dispatch_request()
          ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask_openapi3\scaffold.py", line 127, in view_func
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask_openapi3\scaffold.py", line 127, in view_func
     response = func(**func_kwargs)
                ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\app.py", line 54, in delete_player
-    return service.delete_player(form)
-           ^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'PlayerService' object has no attribute 'delete_player'
-[2023-09-02 19:54:43,428] INFO 127.0.0.1 - - [02/Sep/2023 19:54:43] "[35m[1mDELETE /player HTTP/1.1[0m" 500 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-02 19:55:13,893] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app.py", line 76, in blackjack_new_game
+    return service.new_game(form)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\blackjack_service.py", line 44, in new_game
+    b = arrow.now().floor()
+        ^^^^^^^^^^^^^^^^^^^
+TypeError: Arrow.floor() missing 1 required positional argument: 'frame'
+[2023-09-23 16:40:33,202] INFO 127.0.0.1 - - [23/Sep/2023 16:40:33] "[35m[1mPOST /blackjack/new HTTP/1.1[0m" 500 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-23 16:40:48,921] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
- * Running on http://192.168.1.6:5000 - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-02 19:55:13,894] INFO [33mPress CTRL+C to quit[0m - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-02 19:55:16,557] ERROR Exception on /player [DELETE] - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py L1414
+ * Running on http://192.168.1.8:5000 - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-23 16:40:48,923] INFO [33mPress CTRL+C to quit[0m - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-23 16:40:50,421] ERROR Exception on /blackjack/new [POST] - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py L1414
 Traceback (most recent call last):
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
     rv = self.handle_user_exception(e)
          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
                                                 ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
     rv = self.dispatch_request()
          ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\flask_openapi3\scaffold.py", line 127, in view_func
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask_openapi3\scaffold.py", line 127, in view_func
     response = func(**func_kwargs)
                ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\app.py", line 54, in delete_player
-    return service.delete_player(form)
-           ^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'PlayerService' object has no attribute 'delete_player'
-[2023-09-02 19:55:16,566] INFO 127.0.0.1 - - [02/Sep/2023 19:55:16] "[35m[1mDELETE /player HTTP/1.1[0m" 500 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-02 19:55:54,981] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app.py", line 76, in blackjack_new_game
+    return service.new_game(form)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\blackjack_service.py", line 44, in new_game
+    b = arrow.now().floor()
+        ^^^^^^^^^^^^^^^^^^^
+TypeError: Arrow.floor() missing 1 required positional argument: 'frame'
+[2023-09-23 16:40:50,427] INFO 127.0.0.1 - - [23/Sep/2023 16:40:50] "[35m[1mPOST /blackjack/new HTTP/1.1[0m" 500 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-23 16:42:31,983] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
- * Running on http://192.168.1.6:5000 - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-02 19:55:54,983] INFO [33mPress CTRL+C to quit[0m - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app\venv\Lib\site-packages\werkzeug\_internal.py L187 
+ * Running on http://192.168.1.8:5000 - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-23 16:42:31,985] INFO [33mPress CTRL+C to quit[0m - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-23 16:42:34,964] ERROR Exception on /blackjack/new [POST] - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py L1414
+Traceback (most recent call last):
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask_openapi3\scaffold.py", line 127, in view_func
+    response = func(**func_kwargs)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app.py", line 76, in blackjack_new_game
+    return service.new_game(form)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\blackjack_service.py", line 47, in new_game
+    diff = math.floor(b-a)
+           ^^^^^^^^^^^^^^^
+TypeError: must be real number, not datetime.timedelta
+[2023-09-23 16:42:34,972] INFO 127.0.0.1 - - [23/Sep/2023 16:42:34] "[35m[1mPOST /blackjack/new HTTP/1.1[0m" 500 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
