@@ -33,11 +33,11 @@ $ deactivate
 # Criar imagem no Docker
 
 ```
-docker build -t blackjack-backend .
+docker build -t card-game-backend .
 ```
 
 # Iniciar imagem no Docker
 
 ```
-docker run -p 5000:5000 blackjack-backend
+docker run -p 5000:5000 card-game-backend
 ```
