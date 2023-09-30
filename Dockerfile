@@ -1,5 +1,5 @@
 # Define a imagem base
-FROM python:3.9
+FROM python:3.11.5
 
 # Define o diretório de trabalho dentro do container
 WORKDIR /app
@@ -9,6 +9,8 @@ COPY /requirements.txt .
 
 # Copia o código-fonte para o diretório de trabalho
 COPY . .
+
+EXPOSE 5000
 
 # Instala as dependências do projeto
 RUN pip install --no-cache-dir -r requirements.txt

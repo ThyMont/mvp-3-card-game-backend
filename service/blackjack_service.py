@@ -15,6 +15,10 @@ import os
 
 PARTIDA_NAO_ENCONTRADA = "Partida não encontrada"
 
+requests.adapters.DEFAULT_RETRIES = 3  # increase retries number
+s = requests.session()
+s.keep_alive = False
+
 
 class BlackjackService():
 
@@ -28,7 +32,7 @@ class BlackjackService():
         if validate_msg != 'OK':
             return {'message': validate_msg}, 400
         session = Session()
-        url = 'http://localhost:5001'  # self.URL_BLACKJACK
+        url = self.URL_BLACKJACK
         last_match: Match = session.query(Match).filter(Match.player_id ==
                                                         form.player_id).order_by(desc(Match.date)).first()
         new_match = Match()
@@ -51,8 +55,10 @@ class BlackjackService():
             if not last_match.game_over:
                 last_match.game_over = True
                 session.commit()
+        print(1)
         time.sleep(1)
         request = requests.get(url)
+        print(2)
         json = request.json()
         new_match.deck_id = json['deck_id']
         session.add(new_match)

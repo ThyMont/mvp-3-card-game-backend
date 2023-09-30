@@ -7,9 +7,7 @@ def validate_bet(player_id, coin_1, coin_5, coin_25, coin_50, coin_100):
     if coin_1 + coin_5 + coin_25 + coin_50 + coin_100 == 0:
         return 'APOSTA_ZERADA'
     session = Session()
-    print('A')
     player = session.query(Player).filter(Player.id == player_id).first()
-    print('B')
     if not player:
         return 'PLAYER NÃO ENCONTRADO'
     if player.wallet.coin_1 < coin_1 or player.wallet.coin_5 < coin_5 or player.wallet.coin_25 < coin_25 or player.wallet.coin_50 < coin_50 or player.wallet.coin_100 < coin_100:
@@ -21,7 +19,6 @@ def validate_bet(player_id, coin_1, coin_5, coin_25, coin_50, coin_100):
     player.wallet.coin_50 = player.wallet.coin_50 - coin_50
     player.wallet.coin_100 = player.wallet.coin_100 - coin_100
     session.commit()
-    print('C')
     return 'OK'
 
 

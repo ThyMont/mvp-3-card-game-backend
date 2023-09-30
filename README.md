@@ -39,5 +39,5 @@ docker build -t card-game-backend .
 # Iniciar imagem no Docker
 
 ```
-docker run -p 5000:5000 card-game-backend
+docker run -p 5000:5000 --env-file .env.docker card-game-backend
 ```
