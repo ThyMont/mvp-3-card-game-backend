@@ -16,7 +16,7 @@ from flask_cors import CORS
 
 info = Info(title="Minha API", version="1.0.0")
 app = OpenAPI(__name__, info=info)
-CORS(app)
+CORS(app, supports_credentials=True,  resources={r"/*": {"origins": "*"}})
 
 home_tag = Tag(name="Documentação",
                description="Seleção de documentação: Swagger, Redoc ou RapiDoc")
@@ -49,13 +49,13 @@ def create_player(form: NewPlayerForm):
     return service.create(form)
 
 
-@app.delete('/player',  responses={"200": PlayerDelSchema, "401": ErrorSchema, "400": ErrorSchema})
-def delete_player(form: DeletePlayerForm):
+@app.delete('/player/<int:id>',  responses={"200": PlayerDelSchema, "401": ErrorSchema, "400": ErrorSchema})
+def delete_player(path: PlayerPath):
     """
     Deleta um Player
     """
     service = PlayerService()
-    return service.delete(form)
+    return service.delete(path)
 
 
 @app.put('/player/<int:id>/resetcoins', responses={"200": PlayerViewSchema, "404": ErrorSchema})
@@ -70,13 +70,15 @@ def login_player(form: LoginForm):
     Simples login para o Player - SEM SENHA
     """
     service = PlayerService()
-    return service.find_by_username(form.username)
+    return service.login(form)
 
 
 @app.post('/blackjack/new')
 def blackjack_new_game(form: BetForm):
     service = BlackjackService()
-    return service.new_game(form)
+    print('COMEçOU')
+    response = service.new_game(form)
+    return response
 
 
 @app.get('/blackjack/hit/<int:id>')

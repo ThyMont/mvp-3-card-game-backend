@@ -1,6 +1,7 @@
 from model.player import Player
 from model.wallet import Wallet
-from schemas.player_schema import NewPlayerForm, DeletePlayerForm
+from model.match import Match
+from schemas.player_schema import LoginForm, NewPlayerForm, PlayerPath
 from model import Session
 from logger import logger
 from sqlalchemy.exc import IntegrityError
@@ -20,10 +21,10 @@ class PlayerService:
             logger.info(f"Player encontrado: {player.username}")
             return {'player': player.to_dict()}, 200
 
-    def find_by_username(_, username: str):
+    def login(_, form: LoginForm):
         session = Session()
         player = session.query(Player).filter(
-            Player.username == username).first()
+            Player.username == form.username, Player.password == form.password).first()
         if not player:
             error_msg = "Player não encontrado:/"
             logger.warning(
@@ -36,7 +37,7 @@ class PlayerService:
     def create(_, form: NewPlayerForm):
         try:
             player = Player(
-                name=form.name, username=form.username)
+                name=form.name, username=form.username, password=form.password)
             session = Session()
             session.add(player)
             session.commit()
@@ -57,21 +58,23 @@ class PlayerService:
                 f"Erro ao criar o Player (name: {form.name}, username: {form.username})")
             return {'msg': msg}, 400
 
-    def delete(_, form: DeletePlayerForm):
+    def delete(_, path: PlayerPath):
+        print(path)
         session = Session()
         player = session.query(Player).filter(
-            Player.username == form.username, Player.id == form.player_id).first()
+            Player.id == path.id).first()
         if not player:
-            error_msg = "Username incorreto =/"
             logger.warning(
-                f"Erro ao tentar apagar Player. username:{form.username}, {error_msg}")
-            return {"message": error_msg}, 401
+                f"Player não encontrado")
+            return {"message": "Player não encontrado"}, 401
         else:
             try:
                 session.query(Wallet).filter(
                     Wallet.player == player.id).delete()
+                session.query(Match).filter(
+                    Match.player_id == player.id).delete()
                 session.query(Player).filter(
-                    Player.username == form.username, Player.id == form.player_id).delete()
+                    Player.id == path.id).delete()
                 session.commit()
                 logger.info(f"Player excluido: {player.username}")
                 return {'username': player.username, 'message': f"Player {player.username} excluído com sucesso"}, 200

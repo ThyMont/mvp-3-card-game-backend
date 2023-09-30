@@ -7,7 +7,9 @@ def validate_bet(player_id, coin_1, coin_5, coin_25, coin_50, coin_100):
     if coin_1 + coin_5 + coin_25 + coin_50 + coin_100 == 0:
         return 'APOSTA_ZERADA'
     session = Session()
+    print('A')
     player = session.query(Player).filter(Player.id == player_id).first()
+    print('B')
     if not player:
         return 'PLAYER NÃO ENCONTRADO'
     if player.wallet.coin_1 < coin_1 or player.wallet.coin_5 < coin_5 or player.wallet.coin_25 < coin_25 or player.wallet.coin_50 < coin_50 or player.wallet.coin_100 < coin_100:
@@ -19,7 +21,7 @@ def validate_bet(player_id, coin_1, coin_5, coin_25, coin_50, coin_100):
     player.wallet.coin_50 = player.wallet.coin_50 - coin_50
     player.wallet.coin_100 = player.wallet.coin_100 - coin_100
     session.commit()
-
+    print('C')
     return 'OK'
 
 
@@ -33,9 +35,9 @@ def pay_bets(match: Match, is_natural):
     bet_value = calc_bet(match.bet_1, match.bet_5,
                          match.bet_25, match.bet_50, match.bet_100)
     if is_natural:
-        payment = int(bet_value * 1.5)  # Paga 3:2 em um blackjack natural
+        payment = int(bet_value) * 1.5  # Paga 3:2 em um blackjack natural
     else:
-        payment = bet_value  # Paga 1:1 para outras vitórias
+        payment = int(bet_value)  # Paga 1:1 para outras vitórias
     session = Session()
     player = session.query(Player).filter(Player.id == match.player_id).first()
 

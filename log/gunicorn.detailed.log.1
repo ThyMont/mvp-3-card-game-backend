@@ -1,99 +1,46 @@
-[2023-09-23 17:06:11,143] ERROR Exception on /blackjack/new [POST] - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py L1414
-Traceback (most recent call last):
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1965, in _exec_single_context
-    self.dialect.do_execute(
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 921, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.ProgrammingError: Error binding parameter 1: type 'builtin_function_or_method' is not supported
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
-    return cors_after_request(app.make_response(f(*args, **kwargs)))
-                                                ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\flask_openapi3\scaffold.py", line 127, in view_func
-    response = func(**func_kwargs)
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\app.py", line 76, in blackjack_new_game
-    return service.new_game(form)
-           ^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\blackjack_service.py", line 23, in new_game
-    validate_msg = validate_bet(form.player_id, form.coin_1,
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\model\utils.py", line 11, in validate_bet
-    player = session.query(Player).filter(Player.id == id).first()
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2743, in first
-    return self.limit(1)._iter().first()  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2842, in _iter
-    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
-                                                  ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2262, in execute
-    return self._execute_internal(
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2144, in _execute_internal
-    result: Result[Any] = compile_state_cls.orm_execute_statement(
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
-    result = conn.execute(
-             ^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1412, in execute
-    return meth(
-           ^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
-    return connection._execute_clauseelement(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1635, in _execute_clauseelement
-    ret = self._execute_context(
-          ^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1844, in _execute_context
-    return self._exec_single_context(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1984, in _exec_single_context
-    self._handle_dbapi_exception(
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2339, in _handle_dbapi_exception
-    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1965, in _exec_single_context
-    self.dialect.do_execute(
-  File "C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 921, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.ProgrammingError: (sqlite3.ProgrammingError) Error binding parameter 1: type 'builtin_function_or_method' is not supported
-[SQL: SELECT player.pk_player AS player_pk_player, player.name AS player_name, player.username AS player_username 
-FROM player 
-WHERE player.pk_player = ?
- LIMIT ? OFFSET ?]
-[parameters: (<built-in function id>, 1, 0)]
-(Background on this error at: https://sqlalche.me/e/20/f405)
-[2023-09-23 17:06:11,192] INFO 127.0.0.1 - - [23/Sep/2023 17:06:11] "[35m[1mPOST /blackjack/new HTTP/1.1[0m" 500 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-23 17:06:27,759] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+[2023-09-29 21:22:07,071] INFO 127.0.0.1 - - [29/Sep/2023 21:22:07] "[33mGET /player/1 HTTP/1.1[0m" 404 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:22:21,348] INFO 127.0.0.1 - - [29/Sep/2023 21:22:21] "POST /player HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:22:26,620] INFO Player encontrado: thymont - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\player_service.py L21  
+[2023-09-29 21:22:26,626] INFO 127.0.0.1 - - [29/Sep/2023 21:22:26] "GET /player/1 HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:22:26,875] INFO Player encontrado: thymont - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\player_service.py L21  
+[2023-09-29 21:22:26,878] INFO 127.0.0.1 - - [29/Sep/2023 21:22:26] "GET /player/1 HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:22:31,884] INFO Player encontrado: thymont - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\player_service.py L34  
+[2023-09-29 21:22:31,886] INFO 127.0.0.1 - - [29/Sep/2023 21:22:31] "POST /login HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:22:35,894] INFO Player encontrado: thymont - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\player_service.py L21  
+[2023-09-29 21:22:35,894] INFO 127.0.0.1 - - [29/Sep/2023 21:22:35] "GET /player/1 HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:22:36,160] INFO Player encontrado: thymont - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\player_service.py L21  
+[2023-09-29 21:22:36,160] INFO 127.0.0.1 - - [29/Sep/2023 21:22:36] "GET /player/1 HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:22:36,976] INFO Player encontrado: thymont - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\player_service.py L21  
+[2023-09-29 21:22:36,980] INFO 127.0.0.1 - - [29/Sep/2023 21:22:36] "GET /player/1 HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:22:37,310] INFO Player encontrado: thymont - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\player_service.py L21  
+[2023-09-29 21:22:37,315] INFO 127.0.0.1 - - [29/Sep/2023 21:22:37] "GET /player/1 HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:22:42,879] INFO 127.0.0.1 - - [29/Sep/2023 21:22:42] "POST /blackjack/new HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:32:53,438] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
- * Running on http://192.168.1.8:5000 - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-23 17:06:27,760] INFO [33mPress CTRL+C to quit[0m - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-23 17:06:29,313] INFO 127.0.0.1 - - [23/Sep/2023 17:06:29] "[31m[1mPOST /blackjack/new HTTP/1.1[0m" 400 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-23 17:10:59,419] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://192.168.1.8:5000 - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-23 17:10:59,421] INFO [33mPress CTRL+C to quit[0m - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-23 17:11:01,832] INFO 127.0.0.1 - - [23/Sep/2023 17:11:01] "[31m[1mPOST /blackjack/new HTTP/1.1[0m" 400 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-23 17:11:42,997] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://192.168.1.8:5000 - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-23 17:11:42,999] INFO [33mPress CTRL+C to quit[0m - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
-[2023-09-23 17:11:51,893] INFO 127.0.0.1 - - [23/Sep/2023 17:11:51] "POST /blackjack/new HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+ * Running on http://192.168.1.10:5000 - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:32:53,441] INFO [33mPress CTRL+C to quit[0m - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:33:06,840] INFO 127.0.0.1 - - [29/Sep/2023 21:33:06] "POST /blackjack/new HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:33:25,203] INFO Player encontrado: thymont - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\player_service.py L21  
+[2023-09-29 21:33:25,206] INFO 127.0.0.1 - - [29/Sep/2023 21:33:25] "GET /player/1 HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:33:25,527] INFO Player encontrado: thymont - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\player_service.py L21  
+[2023-09-29 21:33:25,529] INFO 127.0.0.1 - - [29/Sep/2023 21:33:25] "GET /player/1 HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:35:42,642] INFO Player encontrado: thymont - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\player_service.py L34  
+[2023-09-29 21:35:42,644] INFO 127.0.0.1 - - [29/Sep/2023 21:35:42] "POST /login HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:35:51,943] INFO Player encontrado: thymont - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\player_service.py L21  
+[2023-09-29 21:35:51,951] INFO 127.0.0.1 - - [29/Sep/2023 21:35:51] "GET /player/1 HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:35:52,264] INFO Player encontrado: thymont - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\player_service.py L21  
+[2023-09-29 21:35:52,265] INFO 127.0.0.1 - - [29/Sep/2023 21:35:52] "GET /player/1 HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:36:11,785] INFO 127.0.0.1 - - [29/Sep/2023 21:36:11] "OPTIONS /player/1/resetcoins HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:36:12,109] INFO Reseted Coins: thymont - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\player_service.py L96  
+[2023-09-29 21:36:12,115] INFO 127.0.0.1 - - [29/Sep/2023 21:36:12] "PUT /player/1/resetcoins HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:36:12,350] INFO Player encontrado: thymont - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\player_service.py L21  
+[2023-09-29 21:36:12,352] INFO 127.0.0.1 - - [29/Sep/2023 21:36:12] "GET /player/1 HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:36:20,859] INFO Player encontrado: thymont - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\player_service.py L21  
+[2023-09-29 21:36:20,864] INFO 127.0.0.1 - - [29/Sep/2023 21:36:20] "GET /player/1 HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:36:21,176] INFO Player encontrado: thymont - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\player_service.py L21  
+[2023-09-29 21:36:21,178] INFO 127.0.0.1 - - [29/Sep/2023 21:36:21] "GET /player/1 HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:36:25,115] INFO Player encontrado: thymont - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\player_service.py L21  
+[2023-09-29 21:36:25,117] INFO 127.0.0.1 - - [29/Sep/2023 21:36:25] "GET /player/1 HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 
+[2023-09-29 21:36:25,428] INFO Player encontrado: thymont - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\service\player_service.py L21  
+[2023-09-29 21:36:25,434] INFO 127.0.0.1 - - [29/Sep/2023 21:36:25] "GET /player/1 HTTP/1.1" 200 - - call_trace=C:\Users\thymont\OneDrive\Documentos\Engenharia de software\mvp-3-card-game-backend\venv\Lib\site-packages\werkzeug\_internal.py L187 

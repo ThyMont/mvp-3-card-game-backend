@@ -38,6 +38,7 @@ class NewPlayerForm(BaseModel):
     """
     name: str
     username: str
+    password: str
 
 
 class LoginForm(BaseModel):
@@ -45,6 +46,7 @@ class LoginForm(BaseModel):
     Formulário de login - SEM SENHA
     """
     username: str
+    password: str
 
 
 class DeletePlayerForm(BaseModel):
@@ -52,6 +54,7 @@ class DeletePlayerForm(BaseModel):
     Formulário para exclusão de novo player
     """
     player_id: int
+    password: str
 
 
 class PlayerDelSchema(BaseModel):

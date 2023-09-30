@@ -14,12 +14,14 @@ class Player (Base):
     id = Column("pk_player", Integer, primary_key=True, autoincrement=True)
     name = Column(String)
     username = Column(String, unique=True)
+    password = Column(String, nullable=False)
 
     wallet = relationship('Wallet', uselist=False)
 
-    def __init__(self, name, username):
+    def __init__(self, name, username, password):
         self.name = name
         self.username = username
+        self.password = password
 
     def __repr__(self):
         """
